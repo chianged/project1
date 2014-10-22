@@ -5,18 +5,110 @@ date: "October 22, 2014"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Project Title
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r}
-summary(cars)
+
+##### Introduction
+
+
+
+##### Methods
+
+
+
+##### Results
+Number of cells counted on each filter
+```{r, echo=FALSE}
+Mus.In.Hypo.Eub.matrix <- matrix(nrow=3, ncol=3)
+colnames(Mus.In.Hypo.Eub.matrix) <- c("DAPI","GFP", "Area um2")
+Mus.In.Hypo.Eub.matrix[,1] <- c(539, 370, 288)
+Mus.In.Hypo.Eub.matrix[,2] <- c(446, 267, 212)
+Mus.In.Hypo.Eub.matrix[,3] <- c(4359.63, 2890.21, 1895.51)
+MIHE.DAPI <- sum(Mus.In.Hypo.Eub.matrix[,1])
+MIHE.GFP <- sum(Mus.In.Hypo.Eub.matrix[,2])
+MIHE.Area <- sum(Mus.In.Hypo.Eub.matrix[,3])
+
+Mus.Out.Hypo.Eub.matrix <- matrix(nrow=6, ncol=3)
+colnames(Mus.Out.Hypo.Eub.matrix) <- c("DAPI","GFP","Area um2")
+Mus.Out.Hypo.Eub.matrix[,1] <- c(107,200,160,182,264,159)
+Mus.Out.Hypo.Eub.matrix[,2] <- c(70,123,86,100,169,105)
+Mus.Out.Hypo.Eub.matrix[,3] <- c(3183.64,3971.45,3168.87,3980.98,4345.72,3283.65)
+MOHE.DAPI <- sum(Mus.Out.Hypo.Eub.matrix[,1])
+MOHE.GFP <- sum(Mus.Out.Hypo.Eub.matrix[,2])
+MOHE.Area <- sum(Mus.Out.Hypo.Eub.matrix[,3])
+
+Mus.Dep.Hypo.Eub.matrix <- matrix(nrow=4, ncol=3)
+colnames(Mus.Dep.Hypo.Eub.matrix) <- c("DAPI","GFP", "Area um2")
+Mus.Dep.Hypo.Eub.matrix[,1] <- c(266,316,220,280)
+Mus.Dep.Hypo.Eub.matrix[,2] <- c(128,132,137,148)
+Mus.Dep.Hypo.Eub.matrix[,3] <- c(3160.2,3466.53,3162.79,3485.15)
+MDHE.DAPI <- sum(Mus.Dep.Hypo.Eub.matrix[,1])
+MDHE.GFP <- sum(Mus.Dep.Hypo.Eub.matrix[,2])
+MDHE.Area <- sum(Mus.Dep.Hypo.Eub.matrix[,3])
+
+Mus.In.Hypo.Ver.matrix <- matrix(nrow=3, ncol=3)
+colnames(Mus.In.Hypo.Ver.matrix) <- c("DAPI","GFP", "Area um2")
+Mus.In.Hypo.Ver.matrix[,1] <- c(490,396,626)
+Mus.In.Hypo.Ver.matrix[,2] <- c(107,80,137)
+Mus.In.Hypo.Ver.matrix[,3] <- c(3476.03,3142.46,3939.4)
+MIHV.DAPI <- sum(Mus.In.Hypo.Ver.matrix[,1])
+MIHV.GFP <- sum(Mus.In.Hypo.Ver.matrix[,2])
+MIHV.Area <- sum(Mus.In.Hypo.Ver.matrix[,3])
+
+Mus.Out.Hypo.Ver.matrix <- matrix(nrow=6, ncol=3)
+colnames(Mus.Out.Hypo.Ver.matrix) <- c("DAPI","GFP", "Area um2")
+Mus.Out.Hypo.Ver.matrix[,1] <- c(145,150,120,226,244,180)
+Mus.Out.Hypo.Ver.matrix[,2] <- c(30,21,22,34,51,47)
+Mus.Out.Hypo.Ver.matrix[,3] <- c(4328.38,4316.28,4409.73,3971.45,4328.39,4321.46)
+MOHV.DAPI <- sum(Mus.Out.Hypo.Ver.matrix[,1])
+MOHV.GFP <- sum(Mus.Out.Hypo.Ver.matrix[,2])
+MOHV.Area <- sum(Mus.Out.Hypo.Ver.matrix[,3])
+
+Mus.Dep.Hypo.Ver.matrix <- matrix(nrow=5, ncol=3)
+colnames(Mus.Dep.Hypo.Ver.matrix) <- c("DAPI","GFP","Area um2")
+Mus.Dep.Hypo.Ver.matrix[,1] <- c(264,144,244,304,282)
+Mus.Dep.Hypo.Ver.matrix[,2] <- c(29,15,26,41,27)
+Mus.Dep.Hypo.Ver.matrix[,3] <- c(2836.98,3787.51,4356.16,4314.53,3611.04)
+MDHV.DAPI <- sum(Mus.Dep.Hypo.Ver.matrix[,1])
+MDHV.GFP <- sum(Mus.Dep.Hypo.Ver.matrix[,2])
+MDHV.Area <- sum(Mus.Dep.Hypo.Ver.matrix[,3])
 ```
 
-You can also embed plots, for example:
+Calculate the number of cells per filter
+```{r, echo=FALSE}
+#Convert area from um2 to mm2
+MDHE.Area <- MDHE.Area/10^6
+MDHV.Area <- MDHV.Area/10^6
+MIHE.Area <- MIHE.Area/10^6
+MIHV.Area <- MIHV.Area/10^6
+MOHE.Area <- MOHE.Area/10^6
+MOHV.Area <- MOHV.Area/10^6
+
+#Calculate total filtered area
+MDHE.TArea <- 250/MDHE.Area
+MDHV.TArea <- 250/MDHV.Area
+MIHE.TArea <- 250/MIHE.Area
+MIHV.TArea <- 250/MIHV.Area
+MOHE.TArea <- 250/MOHE.Area
+MOHV.TArea <- 250/MOHV.Area
+
+```
+
+Calculate the number of cells per mL
+```{r, echo=FALSE}
+
+
+```
+
+
+##### Discussion
+
+
+
+
+
 
 ```{r, echo=FALSE}
 plot(cars)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
