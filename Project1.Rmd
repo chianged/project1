@@ -118,10 +118,52 @@ MIHV.Cell.mL <- cell.mL(MIHV.TArea,MIHV.DAPI)
 MIHV.Ver.mL <- cell.mL(MIHV.TArea,MIHV.GFP)
 
 #Create table to display cells/mL
+Eub.matrix <- matrix(nrow=2,ncol=3)
+colnames(Eub.matrix) <- c("Deep", "Inlet", "Outlet")
+rownames(Eub.matrix) <- c("Cells/mL","Bacteria/mL")
+Eub.matrix[1,] <- c(MDHE.Cell.mL,MIHE.Cell.mL,MOHE.Cell.mL)
+Eub.matrix[2,] <- c(MDHE.Bac.mL,MIHE.Bac.mL,MOHE.Bac.mL)
+
+Ver.matrix <- matrix(nrow=2,ncol=3)
+colnames(Ver.matrix) <- c("Deep", "Inlet", "Outlet")
+rownames(Ver.matrix) <- c("Cells/mL","Verrucomicrobia/mL")
+Ver.matrix[1,] <- c(MDHV.Cell.mL,MIHV.Cell.mL,MOHV.Cell.mL)
+Ver.matrix[2,] <- c(MDHV.Ver.mL,MIHV.Ver.mL,MOHV.Ver.mL)
+
+#Calculate proporations
+DBac.cell <- MDHE.Bac.mL/MDHE.Cell.mL
+IBac.cell <- MIHE.Bac.mL/MIHE.Cell.mL
+OBac.cell <- MOHE.Bac.mL/MOHE.Cell.mL
+DVer.cell <- MDHV.Ver.mL/MDHV.Cell.mL
+IVer.cell <- MIHV.Ver.mL/MIHV.Cell.mL
+OVer.cell <- MOHV.Ver.mL/MOHV.Cell.mL
+DVer.Bac <- MDHV.Ver.mL/MDHE.Bac.mL
+IVer.Bac <- MIHV.Ver.mL/MIHE.Bac.mL
+OVer.Bac <- MOHV.Ver.mL/MOHE.Bac.mL
+
+#Create proportion table
+Prop.matrix <- matrix(nrow=3,ncol=3)
+colnames(Prop.matrix)<-c("Deep","Inlet","Outlet")
+rownames(Prop.matrix)<-c("Bacteria/Cells","Verruco/Cells","Verruco/Bacteria")
+Prop.matrix[1,]<-c(DBac.cell,IBac.cell,OBac.cell)
+Prop.matrix[2,]<-c(DVer.cell,IVer.cell,OVer.cell)
+Prop.matrix[3,]<-c(DVer.Bac,IVer.Bac,OVer.Bac)
+
+
+#Calculate relative proportions
+DRVer <- DVer.cell/DBac.cell
+IRVer <- IVer.cell/IBac.cell
+ORVer <- OVer.cell/OBac.cell
+
+#Create relative proportion table
+RelProp.matrix <- matrix(nrow=1,ncol=3)
+colnames(RelProp.matrix) <- c("Deep","Inlet","Outlet")
+rownames(RelProp.matrix) <- c("Verruco/Bacteria")
+RelProp.matrix[1,] <- c(DRVer,IRVer,ORVer)
 
 ```
 
-Calculate the number of cells per mL
+
 ```{r, echo=FALSE}
 
 
