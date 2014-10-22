@@ -18,8 +18,10 @@ output: html_document
 
 
 ##### Results
-Number of cells counted on each filter
+
+
 ```{r, echo=FALSE}
+#Create matrix of initial counts and area
 Mus.In.Hypo.Eub.matrix <- matrix(nrow=3, ncol=3)
 colnames(Mus.In.Hypo.Eub.matrix) <- c("DAPI","GFP", "Area um2")
 Mus.In.Hypo.Eub.matrix[,1] <- c(539, 370, 288)
@@ -92,6 +94,30 @@ MIHE.TArea <- 250/MIHE.Area
 MIHV.TArea <- 250/MIHV.Area
 MOHE.TArea <- 250/MOHE.Area
 MOHV.TArea <- 250/MOHV.Area
+
+#Create function to calculate cells/mL
+cell.mL <- function(Area,Count){
+  cell.filt <- Area * Count
+  cells.mL <- cell.filt / 10
+  return(cells.mL)
+}
+cell.mL()
+
+#Calculate cells/mL
+MDHE.Cell.mL <- cell.mL(MDHE.TArea,MDHE.DAPI)
+MDHE.Bac.mL <- cell.mL (MDHE.TArea, MDHE.GFP)
+MDHV.Cell.mL <- cell.mL(MDHV.TArea, MDHV.DAPI)
+MDHV.Ver.mL <- cell.mL(MDHV.TArea, MDHV.GFP)
+MOHE.Cell.mL <- cell.mL (MOHE.TArea, MOHE.DAPI)
+MOHE.Bac.mL <- cell.mL(MOHE.TArea, MOHE.GFP)
+MOHV.Cell.mL <- cell.mL(MOHV.TArea,MOHV.DAPI)
+MOHV.Ver.mL <- cell.mL(MOHV.TArea,MOHV.GFP)
+MIHE.Cell.mL <- cell.mL(MIHE.TArea,MIHE.DAPI)
+MIHE.Bac.mL <- cell.mL(MIHE.TArea,MIHE.GFP)
+MIHV.Cell.mL <- cell.mL(MIHV.TArea,MIHV.DAPI)
+MIHV.Ver.mL <- cell.mL(MIHV.TArea,MIHV.GFP)
+
+#Create table to display cells/mL
 
 ```
 
