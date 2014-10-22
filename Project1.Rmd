@@ -101,7 +101,6 @@ cell.mL <- function(Area,Count){
   cells.mL <- cell.filt / 10
   return(cells.mL)
 }
-cell.mL()
 
 #Calculate cells/mL
 MDHE.Cell.mL <- cell.mL(MDHE.TArea,MDHE.DAPI)
@@ -148,7 +147,6 @@ rownames(Prop.matrix)<-c("Bacteria/Cells","Verruco/Cells","Verruco/Bacteria")
 Prop.matrix[1,]<-c(DBac.cell,IBac.cell,OBac.cell)
 Prop.matrix[2,]<-c(DVer.cell,IVer.cell,OVer.cell)
 Prop.matrix[3,]<-c(DVer.Bac,IVer.Bac,OVer.Bac)
-
 
 #Calculate relative proportions
 DRVer <- DVer.cell/DBac.cell
