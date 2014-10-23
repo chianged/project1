@@ -10,7 +10,7 @@ output:
 
 
 #### Introduction
-  For my senior honors thesis, I am studying the distribution and lifestyle of the bacterial phylum *Verrucomicrobia* in the Great Lakes. Species of Verrucomicrobia have been found to be involved in complex carbon breakdown as well as methane oxidation, which suggest that they play a role in the carbon cycle^3,4^. The majority of Verrucomicrobia studies have been conducted in soil where they are a ubiquitous and abundant group5. They were first observed and later isolated from aquatic systems^6,7,8^; however, very few freshwater studies have been conducted and much remains to be learned regarding their ecology, niche, and function in the ecosystem^9^.
+  For my senior honors thesis, I am studying the distribution and lifestyle of the bacterial phylum *Verrucomicrobia* in the Great Lakes. Species of *Verrucomicrobia* have been found to be involved in complex carbon breakdown as well as methane oxidation, which suggest that they play a role in the carbon cycle^3,4^. The majority of *Verrucomicrobia* studies have been conducted in soil where they are a ubiquitous and abundant group5. They were first observed and later isolated from aquatic systems^6,7,8^; however, very few freshwater studies have been conducted and much remains to be learned regarding their ecology, niche, and function in the ecosystem^9^.
   
   The majority of my data will be generated from DNA sequencing; however, due to the potential for bias in the molecular data, I will complement it with catalyzed reporter deposition in-situ hybridization (CARD-FISH), analysis to generate the most accurate results possible. I spent the past year optimizing CARD-FISH, and will now compare it to the molecular data. My question is whether the proportion of *Verrucomicrobia* reported by the two methods are similar.
 
@@ -253,6 +253,10 @@ The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-F
 
 #### Discussion
 It would be interesting to see if probes targeted towards gram-positive bacteria performed similarly despite the added challenge of permeating the thick peptidoglycan layer. I would also be interested in seeing if more specific probes--such as those targeting a bacterial class--perform similarly.
+
+For future CARD-FISH runs, I would like to examine specific classes of *Verrucomicrobia*.
+
+Most importantly, I need to finish learning how to analyze the OTU data exported from Mothur. This will be the basis of my senior thesis and will depend upon statistical analysis with R. In other words, I need to step up my game.
 
 
 
