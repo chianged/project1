@@ -97,6 +97,7 @@ TVer.matrix
 ```
 
 
+
 Using the total counts and the size of the area which I counted, I determined the number of cells/mL of filtered water.
 ```{r, echo=FALSE}
 #Convert area from um2 to mm2
@@ -155,6 +156,7 @@ Ver.matrix
 ```
 
 
+
 Next, I calculated the proportion of bacterial cells and verrucomicrobial cells compared to overall cells.
 ```{r, echo=FALSE}
 #Calculate proporations
@@ -180,6 +182,7 @@ Prop.matrix
 ```
 
 
+
 The proportion of *Verrucomicrobia* compared to Bacteria seemed odd. If bacteria accounted for 50% of all cells, and *Verrucomicrobia* for 11% of all cells, I would expect the proportion of Verrucomicrobia to Bacteria to be roughly 20%; however, using absolute counts this is lower at 17%. To better compare the two groups, I calculated relative proportions.
 ```{r, echo=FALSE}
 #Calculate relative proportions
@@ -196,11 +199,26 @@ RelProp.matrix[1,] <- c(DRVer,IRVer,ORVer)
 RelProp.matrix
 ```
 
-To determine whether the absolute and relative proportions are significant different, I conducted a Wilkoxin test for each with Bonferroni correction
+
+
+To determine whether the absolute and relative proportions of *Verrucomicrobia* are significantly different, I conducted a test of proportions.
 ```{r, echo=FALSE}
+Abs <- c(0.1777877,0.3034076,0.2681900)
+Rel <- c(0.221304,0.2772973,0.3159991)
+wilcox.test(Abs,Rel,paired=TRUE)
 
-
+Abs.Rel <- matrix(nrow=2,ncol=3)
+Abs.Rel[1,] <- Prop.matrix[3,]
+Abs.Rel[2,] <- RelProp.matrix
+Abs.Rel <- t(Abs.Rel)
+prop.test(Abs.Rel)
 ```
+The p-value is 0.9964, so the relative and absolute proportion of *Verrucomicrobia* is not significantly different.
+
+
+
+
+
 
 
 #### Discussion
