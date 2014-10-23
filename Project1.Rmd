@@ -203,10 +203,14 @@ RelProp.matrix
 
 To determine whether the absolute and relative proportions of *Verrucomicrobia* are significantly different, I conducted a test of proportions.
 ```{r, echo=FALSE}
+#Make matrix
 Abs.Rel <- matrix(nrow=2,ncol=3)
 Abs.Rel[1,] <- Prop.matrix[3,]
 Abs.Rel[2,] <- RelProp.matrix
+
+#Transpose matrix; flip dimensions
 Abs.Rel <- t(Abs.Rel)
+
 prop.test(Abs.Rel)
 ```
 The p-value is 0.9964, so the relative and absolute proportion of *Verrucomicrobia* is not significantly different.
@@ -228,9 +232,10 @@ Tag.matrix[1,] <- c(0.31256, 0.09375,0.21875)
 Tag.compare <- matrix(nrow=3, ncol=2)
 Tag.compare[,1] <- Abs.Rel[,2]
 Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
+
 prop.test(Tag.compare)
 ```
-
+The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-FISH and tag sequencing are not significantly different.
 
 
 #### Discussion
