@@ -14,7 +14,8 @@ output:
 
 
 #### Methods
-
+Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes Eub 338, EUB 338 II, and EUB 338 III were used to tag all bacterial cells. Verrucomicrobia was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy and a minimum of 1000 cells was counted per labeled filter.
+   The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently, the extractions were sequenced at the University of Michigan. The sequences were then analyzed using Mothur and RStudio.
 
 
 #### Results
