@@ -19,7 +19,7 @@ output:
 
 #### Results
 
-
+I first calculate the total counts.
 ```{r, echo=FALSE}
 #Create matrix of initial counts and area
 #Also calculate sum of columns
@@ -89,9 +89,13 @@ colnames(TVer.matrix) <- c("Deep","Inlet","Outlet")
 rownames(TVer.matrix) <- c("Cells","Verrucomicrobia")
 TVer.matrix[1,] <- c(MDHV.DAPI, MIHV.DAPI,MOHV.DAPI)
 TVer.matrix[2,] <- c(MDHV.GFP, MIHV.GFP,MOHV.GFP)
+
+TEub.matrix
+
+TVer.matrix
 ```
 
-
+From the total counts, I can use the size of the area I counted to determine the number of cells/mL.
 ```{r, echo=FALSE}
 #Convert area from um2 to mm2
 MDHE.Area <- MDHE.Area/10^6
@@ -143,6 +147,14 @@ rownames(Ver.matrix) <- c("Cells/mL","Verrucomicrobia/mL")
 Ver.matrix[1,] <- c(MDHV.Cell.mL,MIHV.Cell.mL,MOHV.Cell.mL)
 Ver.matrix[2,] <- c(MDHV.Ver.mL,MIHV.Ver.mL,MOHV.Ver.mL)
 
+Eub.matrix
+
+Ver.matrix
+```
+
+
+Next, I calculate the proportion of bacteria and *Verrucomicrobia* cells to DAPI cells.
+```{r, echo=FALSE}
 #Calculate proporations
 DBac.cell <- MDHE.Bac.mL/MDHE.Cell.mL
 IBac.cell <- MIHE.Bac.mL/MIHE.Cell.mL
@@ -162,6 +174,11 @@ Prop.matrix[1,]<-c(DBac.cell,IBac.cell,OBac.cell)
 Prop.matrix[2,]<-c(DVer.cell,IVer.cell,OVer.cell)
 Prop.matrix[3,]<-c(DVer.Bac,IVer.Bac,OVer.Bac)
 
+Prop.matrix
+```
+
+Relative proportions.
+```{r, echo=FALSE}
 #Calculate relative proportions
 DRVer <- DVer.cell/DBac.cell
 IRVer <- IVer.cell/IBac.cell
@@ -173,6 +190,7 @@ colnames(RelProp.matrix) <- c("Deep","Inlet","Outlet")
 rownames(RelProp.matrix) <- c("Verruco/Bacteria")
 RelProp.matrix[1,] <- c(DRVer,IRVer,ORVer)
 
+RelProp.matrix
 ```
 
 
