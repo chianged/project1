@@ -1,5 +1,5 @@
 ---
-title: "CARD-FISH and DNA tag sequencing comparison"
+title: "Comparison of CARD-FISH and DNA tag sequencing in Muskegon Lake"
 author: "Edna Chiang"
 date: "October 22, 2014"
 output:
@@ -10,12 +10,12 @@ output:
 
 
 #### Introduction
-  
+  For my senior honors thesis, I am studying the distribution and lifestyle of the bacterial phylum *Verrucomicrobia* in the Great Lakes. The majority of my data will be generated from DNA sequencing; however, due to the potential for bias in the molecular data, I will complement it with catalyzed reporter deposition in-situ hybridization (CARD-FISH), analysis to generate the most accurate results possible. I spent the past year optimizing CARD-FISH, and will now compare it to the molecular data to determine whether the proportion of *Verrucomicrobia* reported by the two methods are similar.
 
 
 #### Methods
   Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes Eub 338, EUB 338 II, and EUB 338 III were used to tag bacterial cells. *Verrucomicrobia* was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy, and a minimum of 1000 cells was counted per labeled filter.
-   The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently, the extractions were sequenced at the University of Michigan and analyzed using Mothur and RStudio.
+   The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently. The 16S rRNA V4 region was tag-sequenced at the University of Michigan, and analyzed using Mothur and RStudio.
 
 
 #### Results
@@ -248,8 +248,10 @@ The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-F
 
 
 #### Discussion
+CARD-FISH detected relatively high levels of *Verrucomicrobia* in 
 
 
+It would be interesting to see if probes targeted towards gram-positive bacteria performed similarly despite the added challenge of permeating the thick peptidoglycan layer. I would also be interested in seeing if more specific probes--such as those targeting a class or family--perform similarly.
 
 
 
