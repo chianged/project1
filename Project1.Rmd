@@ -203,10 +203,6 @@ RelProp.matrix
 
 To determine whether the absolute and relative proportions of *Verrucomicrobia* are significantly different, I conducted a test of proportions.
 ```{r, echo=FALSE}
-Abs <- c(0.1777877,0.3034076,0.2681900)
-Rel <- c(0.221304,0.2772973,0.3159991)
-wilcox.test(Abs,Rel,paired=TRUE)
-
 Abs.Rel <- matrix(nrow=2,ncol=3)
 Abs.Rel[1,] <- Prop.matrix[3,]
 Abs.Rel[2,] <- RelProp.matrix
@@ -216,8 +212,24 @@ prop.test(Abs.Rel)
 The p-value is 0.9964, so the relative and absolute proportion of *Verrucomicrobia* is not significantly different.
 
 
+For my following calculations, I will use the relative proportion of *Verrucomicrobia*.
 
 
+To determine whether the *Verrucomicrobia* proportion reported by CARD-FISH differs from the proportion reported by tag sequencing, I conducted another test of proportions.
+The sequencing proportions are rounded from preliminary calculations conducted by the Denef Lab.
+
+```{r, echo=FALSE}
+#Make sequencing proportion table
+Tag.matrix <- matrix(nrow=1, ncol=3)
+colnames(Tag.matrix) <- c("Deep", "Inlet", "Outlet")
+Tag.matrix[1,] <- c(0.31256, 0.09375,0.21875)
+
+#Create table for comparison of seq and rel CARD-FISH
+Tag.compare <- matrix(nrow=3, ncol=2)
+Tag.compare[,1] <- Abs.Rel[,2]
+Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
+prop.test(Tag.compare)
+```
 
 
 
@@ -228,6 +240,3 @@ The p-value is 0.9964, so the relative and absolute proportion of *Verrucomicrob
 
 
 
-```{r, echo=FALSE}
-plot(cars)
-```
