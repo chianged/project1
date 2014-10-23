@@ -20,7 +20,7 @@ Samples were collected during a sampling cruise in May 2014 conducted in collabo
 
 #### Results
 
-I first calculate the total counts.
+I first calculated the total number of counted cells.
 ```{r, echo=FALSE}
 #Create matrix of initial counts and area
 #Also calculate sum of columns
@@ -96,7 +96,8 @@ TEub.matrix
 TVer.matrix
 ```
 
-From the total counts, I can use the size of the area I counted to determine the number of cells/mL.
+
+Using the total counts and the size of the area which I counted, I determined the number of cells/mL of filtered water.
 ```{r, echo=FALSE}
 #Convert area from um2 to mm2
 MDHE.Area <- MDHE.Area/10^6
@@ -154,7 +155,7 @@ Ver.matrix
 ```
 
 
-Next, I calculate the proportion of bacteria and *Verrucomicrobia* cells to DAPI cells.
+Next, I calculated the proportion of bacterial cells and verrucomicrobial cells compared to overall cells.
 ```{r, echo=FALSE}
 #Calculate proporations
 DBac.cell <- MDHE.Bac.mL/MDHE.Cell.mL
@@ -178,7 +179,8 @@ Prop.matrix[3,]<-c(DVer.Bac,IVer.Bac,OVer.Bac)
 Prop.matrix
 ```
 
-Relative proportions.
+
+The proportion of *Verrucomicrobia* compared to Bacteria seemed odd. If bacteria accounted for 50% of all cells, and *Verrucomicrobia* for 11% of all cells, I would expect the proportion of Verrucomicrobia to Bacteria to be roughly 20%; however, using absolute counts this is lower at 17%. To better compare the two groups, I calculated relative proportions.
 ```{r, echo=FALSE}
 #Calculate relative proportions
 DRVer <- DVer.cell/DBac.cell
@@ -194,7 +196,7 @@ RelProp.matrix[1,] <- c(DRVer,IRVer,ORVer)
 RelProp.matrix
 ```
 
-
+To determine whether the absolute and relative proportions are significant different, I conducted a Wilkoxin test for each with Bonferroni correction
 ```{r, echo=FALSE}
 
 
