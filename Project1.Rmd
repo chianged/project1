@@ -1,5 +1,5 @@
 ---
-title: "Comparison of CARD-FISH and DNA sequencing data"
+title: "CARD-FISH and DNA tag sequencing comparison"
 author: "Edna Chiang"
 date: "October 22, 2014"
 output:
@@ -10,12 +10,12 @@ output:
 
 
 #### Introduction
-
+  
 
 
 #### Methods
-Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes Eub 338, EUB 338 II, and EUB 338 III were used to tag all bacterial cells. Verrucomicrobia was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy and a minimum of 1000 cells was counted per labeled filter.
-   The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently, the extractions were sequenced at the University of Michigan. The sequences were then analyzed using Mothur and RStudio.
+  Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes Eub 338, EUB 338 II, and EUB 338 III were used to tag bacterial cells. *Verrucomicrobia* was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy, and a minimum of 1000 cells was counted per labeled filter.
+   The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently, the extractions were sequenced at the University of Michigan and analyzed using Mothur and RStudio.
 
 
 #### Results
@@ -98,7 +98,7 @@ TVer.matrix
 
 
 
-Using the total counts and the size of the area which I counted, I determined the number of cells/mL of filtered water.
+Using the total counts, the area of the field that I counted, and the volume of water filtered, I determined the number of cells/mL.
 ```{r, echo=FALSE}
 #Convert area from um2 to mm2
 MDHE.Area <- MDHE.Area/10^6
@@ -157,7 +157,7 @@ Ver.matrix
 
 
 
-Next, I calculated the proportion of bacterial cells and verrucomicrobial cells compared to overall cells.
+Next, I calculated the proportion of bacterial and verrucomicrobial cells compared to overall cells.
 ```{r, echo=FALSE}
 #Calculate proporations
 DBac.cell <- MDHE.Bac.mL/MDHE.Cell.mL
@@ -183,7 +183,7 @@ Prop.matrix
 
 
 
-The proportion of *Verrucomicrobia* compared to Bacteria seemed odd. If bacteria accounted for 50% of all cells, and *Verrucomicrobia* for 11% of all cells, I would expect the proportion of Verrucomicrobia to Bacteria to be roughly 20%; however, using absolute counts this is lower at 17%. To better compare the two groups, I calculated relative proportions.
+The proportion of *Verrucomicrobia* compared to Bacteria seemed odd. If Bacteria accounted for 50% of all cells, and *Verrucomicrobia* for 11% of all cells, I would expect the proportion of Verrucomicrobia to Bacteria to be roughly 20%; however, using absolute counts, this is lower at 17%. To better compare the two groups, I calculated the relative proportion of *Verrucomicrobia* with respect to the proportion of Bacteria.
 ```{r, echo=FALSE}
 #Calculate relative proportions
 DRVer <- DVer.cell/DBac.cell
@@ -213,14 +213,14 @@ Abs.Rel <- t(Abs.Rel)
 
 prop.test(Abs.Rel)
 ```
-The p-value is 0.9964, so the relative and absolute proportion of *Verrucomicrobia* is not significantly different.
+The p-value is 0.9964, so the relative and absolute proportions of *Verrucomicrobia* are not significantly different. 
 
 
 For my following calculations, I will use the relative proportion of *Verrucomicrobia*.
 
 
 To determine whether the *Verrucomicrobia* proportion reported by CARD-FISH differs from the proportion reported by tag sequencing, I conducted another test of proportions.
-The sequencing proportions are rounded from preliminary calculations conducted by the Denef Lab.
+The sequencing proportions are rounded from preliminary calculations performed by the Denef Lab.
 
 ```{r, echo=FALSE}
 #Make sequencing proportion table
@@ -234,6 +234,15 @@ Tag.compare[,1] <- Abs.Rel[,2]
 Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
 
 prop.test(Tag.compare)
+
+#Function to calculate standard deviation???
+sd <- function(p,n){
+  a <- 1-p
+  b <- p*a
+  c <- b/n
+  d <- sqrt(n)
+  return(d)
+}
 ```
 The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-FISH and tag sequencing are not significantly different.
 
