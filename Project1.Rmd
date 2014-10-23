@@ -1,27 +1,28 @@
 ---
-title: "Project1"
+title: "Comparison of CARD-FISH and DNA sequencing data"
 author: "Edna Chiang"
 date: "October 22, 2014"
-output: html_document
+output:
+  html_document:
+    keep_md: yes
 ---
 
-### Project Title
+
+
+#### Introduction
 
 
 
-##### Introduction
+#### Methods
 
 
 
-##### Methods
-
-
-
-##### Results
+#### Results
 
 
 ```{r, echo=FALSE}
 #Create matrix of initial counts and area
+#Also calculate sum of columns
 Mus.In.Hypo.Eub.matrix <- matrix(nrow=3, ncol=3)
 colnames(Mus.In.Hypo.Eub.matrix) <- c("DAPI","GFP", "Area um2")
 Mus.In.Hypo.Eub.matrix[,1] <- c(539, 370, 288)
@@ -75,9 +76,22 @@ Mus.Dep.Hypo.Ver.matrix[,3] <- c(2836.98,3787.51,4356.16,4314.53,3611.04)
 MDHV.DAPI <- sum(Mus.Dep.Hypo.Ver.matrix[,1])
 MDHV.GFP <- sum(Mus.Dep.Hypo.Ver.matrix[,2])
 MDHV.Area <- sum(Mus.Dep.Hypo.Ver.matrix[,3])
+
+#Create table to display total counts
+TEub.matrix <- matrix(nrow=2,ncol=3)
+colnames(TEub.matrix) <- c("Deep","Inlet","Outlet")
+rownames(TEub.matrix) <- c("Cells","Bacteria")
+TEub.matrix[1,] <- c(MDHE.DAPI, MIHE.DAPI,MOHE.DAPI)
+TEub.matrix[2,] <- c(MDHE.GFP, MIHE.GFP,MOHE.GFP)
+
+TVer.matrix <- matrix(nrow=2,ncol=3)
+colnames(TVer.matrix) <- c("Deep","Inlet","Outlet")
+rownames(TVer.matrix) <- c("Cells","Verrucomicrobia")
+TVer.matrix[1,] <- c(MDHV.DAPI, MIHV.DAPI,MOHV.DAPI)
+TVer.matrix[2,] <- c(MDHV.GFP, MIHV.GFP,MOHV.GFP)
 ```
 
-Calculate the number of cells per filter
+
 ```{r, echo=FALSE}
 #Convert area from um2 to mm2
 MDHE.Area <- MDHE.Area/10^6
@@ -168,7 +182,7 @@ RelProp.matrix[1,] <- c(DRVer,IRVer,ORVer)
 ```
 
 
-##### Discussion
+#### Discussion
 
 
 
