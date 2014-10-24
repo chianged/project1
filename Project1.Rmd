@@ -289,7 +289,7 @@ barplot(Tag.compare, width=1, names.arg=c("Deep", "Inlet", "Outlet"),beside=TRUE
 segments(-1,0,10,0, lwd=2)
 
 #Add legend
-legend(x=c(10,14.5), y=c(0,0.1), legend=c("CARD-FISH","Molecular"), col=c("yellow","blue"), pch=15)
+legend(x=c(10,14.5), y=c(0.2,0.3), legend=c("CARD-FISH","Molecular"), col=c("yellow","blue"), pch=15)
 
 #Add std error bars
 #Vertical
