@@ -134,6 +134,7 @@ The p-value is very large (0.9508), so the proportions of *Verrucomicrobia* calc
 
 
 
+
 To help visualize the data, I plotted the CARD-FISH and molecular data proportions with error bars.
 ![plot of chunk unnamed-chunk-7](./Project1_files/figure-html/unnamed-chunk-7.png) 
 
