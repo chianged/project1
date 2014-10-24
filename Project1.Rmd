@@ -238,15 +238,31 @@ Tag.compare[,1] <- Abs.Rel[,2]
 Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
 
 prop.test(Tag.compare)
+```
 
-#Function to calculate standard deviation???
+
+To help visualize the data, I plot the CARD-FISH and tag sequencing proportions with error bars.
+```{r, echo=FALSE}
+#Function to calculate standard deviation
 sd <- function(p,n){
   a <- 1-p
   b <- p*a
   c <- b/n
-  d <- sqrt(n)
+  d <- sqrt(c)
   return(d)
 }
+
+#Calculate sd
+FISH.Dep.sd <- sd(Abs.Rel[1,2], 1000)
+FISH.In.sd <- sd(Abs.Rel[2,2], 1000)
+FISH.Out.sd <- sd(Abs.Rel[2,3], 1000)
+Tag.Dep.sd <- sd(Tag.compare[1,1], 1000)
+Tag.In.sd <- sd(Tag.compare[2,1], 1000)
+Tag.Out.sd <- sd(Tag.compare[3,1],1000)
+
+#Create bar plot
+Tag.compare <- t(Tag.compare)
+barplot(Tag.compare, width=1, names.arg=c("Deep", "Inlet", "Outlet"), legend.text=c("CARD-FISH", "Sequencing"), beside=TRUE, horiz=FALSE, main="Verrucomicrobia Proportion", xlab="Sample", ylab="Relative Proportion", axisnames=TRUE)
 ```
 The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-FISH and tag sequencing are not significantly different.
 
