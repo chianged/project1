@@ -9,7 +9,7 @@ output:
 
 
 
-#### Introduction
+### Introduction
   For my senior honors thesis, I am studying the distribution and lifestyle of the bacterial phylum *Verrucomicrobia* in the Great Lakes. Species of *Verrucomicrobia* have been found to be involved in complex carbon breakdown as well as methane oxidation, which suggest that they play a role in the carbon cycle^1,2^. The majority of *Verrucomicrobia* studies have been conducted in soil where they are a ubiquitous and abundant group^3^. They were first observed and later isolated from aquatic systems^4,5,6^; however, very few freshwater studies have been conducted and much remains to be learned regarding their ecology, niche, and function in the ecosystem^7^.
   
   The majority of my data will be generated from DNA sequencing; however, due to the potential for bias in the molecular data, I will complement it with catalyzed reporter deposition in-situ hybridization (CARD-FISH), analysis to generate the most accurate results possible. I spent the past year optimizing CARD-FISH, and will now compare it to the molecular data. My question is whether the proportion of *Verrucomicrobia* reported by the two methods are similar.
@@ -17,7 +17,7 @@ output:
 
 
 
-#### Methods
+### Methods
   Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters. Probes EUB 338, EUB 338 II, and EUB 338 III were used to tag bacterial cells. *Verrucomicrobia* was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy. To count cells stained by DAPI and tagged by the probes, a photo was taken and a minimum of 1000 cells was counted per labeled filter.
   
   
@@ -26,7 +26,7 @@ output:
 
 
 
-#### Results
+### Results
 
 First, I calculated the total number of counted cells.
 ```{r, echo=FALSE}
@@ -230,7 +230,7 @@ prop.test(Abs.Rel)
 Because the p-value is very large (0.9964), I do not reject H0. The relative and absolute proportions of *Verrucomicrobia* are not significantly different.
 
 
-For my following calculations, I will use the relative proportion of *Verrucomicrobia*.
+For my remaining calculations, I will use the relative proportion of *Verrucomicrobia*.
 
 
 
@@ -347,7 +347,7 @@ power.prop.test(n=c(6), p1=Tag.compare[1,3], p2=Tag.compare[2,3], sig.level=0.05
 
 Power = 0.056
 
-#### Discussion
+### Discussion
 
 
 Based on my data, the absolute and relative proportions of *Verrucomicrobia* are not significantly different; neither are the proportions calculated from CARD-FISH versus molecular data. However, my bar plot illustrates that while the proportions from CARD-FISH and molecular data are different, the CARD-FISH error bars are extremely large. This reveals a critical shortcoming in my data: my CARD-FISH counts are based on an extremely small observation size. Although I counted a large number of cells on each labeled filter (over 1000), the number of observations for each labeled filter is between 3 and 6. As a result, my standard deviation is extremely large. 
@@ -367,7 +367,7 @@ For future directions, I would like to use CARD-FISH to examine *Verrucomicrobia
 
 
 
-####References
+###References
 
 
 1. Op den Camp H. *et al., Environ. Microbiol. Rep.* **1**, 293 (2009)
