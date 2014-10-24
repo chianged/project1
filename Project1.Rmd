@@ -18,7 +18,7 @@ output:
 
 
 #### Methods
-  Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes Eub 338, EUB 338 II, and EUB 338 III were used to tag bacterial cells. *Verrucomicrobia* was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy. To count cells stained by DAPI and tagged by the probes, a photo was taken and a minimum of 1000 cells was counted per labeled filter.
+  Samples were collected during a sampling cruise in May 2014 conducted in collaboration with the Grand Valley State University Annis Water Resources Center. 2 L of water was collected in Van Dorn Water Samplers at varying depths in Muskegon Lake in three locations: the river inlet, the estuary outlet, and the deepest point of the lake. The water was first pre-filtered through 210 μm and 20 μm to remove debris. 20 mL of this filtrate was collected and stored on ice or in a 4°C refrigerator for less than 24 hrs before being filtered back in the lab. CARD-FISH was performed on these filters, according to the method of Sekar, et al. Probes EUB 338, EUB 338 II, and EUB 338 III were used to tag bacterial cells. *Verrucomicrobia* was targeted by mixing EUB 338 II and unlabeled EUB 338 III. The nonsense probe NONEUB (NON338) was used as a control. Filters were counterstained with DAPI to identify all cells. The filters were then examined with fluorescence microscopy. To count cells stained by DAPI and tagged by the probes, a photo was taken and a minimum of 1000 cells was counted per labeled filter.
   
   
    The remaining pre-filtered was pumped through a 3 μm and 0.22 μm filter, which, respectively, captured particle-associated and free-living microorganisms. These filters were stored in liquid nitrogen and, upon returning to the lab, in an -80°C refrigerator. The Qiagen AllPrep DNA Extraction Kit was used to extract DNA from the filters. Subsequently. The 16S rRNA V4 region was Ilumina MiSeq tag-sequenced at the University of Michigan, and analyzed using Mothur and RStudio.
@@ -323,16 +323,16 @@ segments(8.25,Tag.compare[2,3]+Tag.Out.sd,8.75,Tag.compare[2,3]+Tag.Out.sd,lwd=2
 #### Discussion
 
 
-The standard deviation of the CARD-FISH proportion is extremely high. To decrease this and increase the power and accuracy of my data, I should conduct more counts.
+Based on my data, the absolute and relative proportions of *Verrucomicrobia* are not significantly different; neither are the proportions calculated from CARD-FISH versus molecular data. However, my bar plot illustrates that while the proportions from CARD-FISH and molecular data are different, the CARD-FISH error bars are extremely large. This reveals a critical shortcoming in my data: my CARD-FISH counts are based on an extremely small observation size. Although I counted a large number of cells on each labeled filter (over 1000), the number of observations for each labeled filter is between 3 and 6. As a result, my standard deviation is extremely large. This shortcoming may be the cause of Type II error and low power in my analysis.
 
 
-It would be interesting to see if probes targeted towards gram-positive bacteria performed similarly despite the added challenge of permeating the thick peptidoglycan layer. I would also be interested in seeing if more specific probes--such as those targeting a bacterial class--perform similarly.
+To remedy this, I should increase the number of observations by counting more fields. This may result in drasticly different results when running tests of proportions. For example, when looking at the inlet proportions on the bar plot, the CARD-FISH error bar just barely overlaps with the molecular data error bar and proportion. I hypothesize that if I increase the number of CARD-FISH observations, the proportion of *Verrucomicrobia* calculated from CARD-FISH versus molecular data will be significantly different.
 
 
-For future CARD-FISH, I would like to examine specific classes of *Verrucomicrobia*.
+Although I did not conduct any statistical analyses on this, I was surprised by the proportion of labeled bacterial cells compared to DAPI-stained cells. I do not expect the number of bacteria compared to the number of all cells to be equal due to the presence of Eukaryotes, Archeae, but at a first glance the proportion seems rather low. This could be caused by dead or lysed cells or an inability of the probe to permeate the cell membrane. It would be interesting to see if probes targeted towards gram-positive bacteria performed due to the added challenge of permeating the thick peptidoglycan layer.
 
 
-Most importantly, I need to finish learning how to analyze the OTU data exported from Mothur so I can calculate proportions myself instead of relying on help from Marian and Vincent. My senior thesis will depend upon statistical analysis with R; in other words, I need to step up my game.
+For future directions, I would like to use CARD-FISH to examine *Verrucomicrobia* on a finer level and compare the distribution of its classes. Most importantly, I need to learn how to analyze molecular data in R so I do not have to constantly reply on help from Marian and Vincent. My senior thesis depends on this; so, in other words, I really need to step up my R game.
 
 
 
