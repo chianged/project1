@@ -253,18 +253,20 @@ sd <- function(p,n){
 }
 
 #Calculate sd
-FISH.Dep.sd <- sd(Abs.Rel[1,2], 1000)
-FISH.In.sd <- sd(Abs.Rel[2,2], 1000)
-FISH.Out.sd <- sd(Abs.Rel[3,2], 1000)
-Tag.Dep.sd <- sd(Tag.compare[1,1], 1000)
-Tag.In.sd <- sd(Tag.compare[2,1], 1000)
-Tag.Out.sd <- sd(Tag.compare[3,1],1000)
+#Observations for FISH = num fields counted
+FISH.Dep.sd <- sd(Abs.Rel[1,2], 3)
+FISH.In.sd <- sd(Abs.Rel[2,2], 6)
+FISH.Out.sd <- sd(Abs.Rel[3,2], 5)
+#Observations for 
+Tag.Dep.sd <- sd(Tag.compare[2,1], 25000)
+Tag.In.sd <- sd(Tag.compare[2,2], 25000)
+Tag.Out.sd <- sd(Tag.compare[2,3],25000)
 
 #Prep matrix for bar plot
 Tag.compare <- t(Tag.compare)
 
 #Create bar plot
-barplot(Tag.compare, width=1, names.arg=c("Deep", "Inlet", "Outlet"),beside=TRUE, horiz=FALSE, col=c("Yellow","Blue"),main="Verrucomicrobia Proportion", xlab="Sample", ylab="Relative Proportion", xlim=c(0,17),ylim=c(0,0.35), axisnames=TRUE)
+barplot(Tag.compare, width=1, names.arg=c("Deep", "Inlet", "Outlet"),beside=TRUE, horiz=FALSE, col=c("Yellow","Blue"),main="Verrucomicrobia Proportion", xlab="Sample", ylab="Relative Proportion", xlim=c(0,17),ylim=c(0,0.55), axisnames=TRUE)
 
 #Add legend
 legend(x=c(10,17), y=c(0,0.1), legend=c("CARD-FISH","Sequencing"), col=c("yellow","blue"), pch=15)
@@ -301,6 +303,8 @@ The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-F
 
 
 #### Discussion
+The standard deviation of the CARD-FISH proportion is extremely high. To decrease this and increase the power and accuracy of my data, I should conduct more counts.
+
 It would be interesting to see if probes targeted towards gram-positive bacteria performed similarly despite the added challenge of permeating the thick peptidoglycan layer. I would also be interested in seeing if more specific probes--such as those targeting a bacterial class--perform similarly.
 
 For future CARD-FISH runs, I would like to examine specific classes of *Verrucomicrobia*.
