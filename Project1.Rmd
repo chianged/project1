@@ -24,7 +24,7 @@ output:
 
 #### Results
 
-I first calculated the total number of counted cells.
+First, I calculated the total number of counted cells.
 ```{r, echo=FALSE}
 #Create matrix of initial counts and area
 #Also calculate sum of columns
@@ -205,7 +205,9 @@ RelProp.matrix
 
 
 
-To determine whether the absolute and relative proportions of *Verrucomicrobia* are significantly different, I conducted a test of proportions.
+To determine whether the absolute and relative proportions of *Verrucomicrobia* are significantly different, I performed a test of proportions.
+
+H0 = The absolute and relative proportions of *Verrucomicrobia* are not significantly different.
 ```{r, echo=FALSE}
 #Make matrix
 Abs.Rel <- matrix(nrow=2,ncol=3)
@@ -217,14 +219,16 @@ Abs.Rel <- t(Abs.Rel)
 
 prop.test(Abs.Rel)
 ```
-The p-value is 0.9964, so the relative and absolute proportions of *Verrucomicrobia* are not significantly different. 
+Because the p-value is very large (0.9964), I do not reject H0. The relative and absolute proportions of *Verrucomicrobia* are not significantly different.
 
 
 For my following calculations, I will use the relative proportion of *Verrucomicrobia*.
 
 
-To determine whether the *Verrucomicrobia* proportion reported by CARD-FISH differs from the proportion reported by tag sequencing, I conducted another test of proportions.
-The sequencing proportions are rounded from preliminary calculations performed by the Denef Lab.
+To determine whether the *Verrucomicrobia* proportion calculated from CARD-FISH differs from the proportion calculated from tag sequencing, I performed another test of proportions.
+The sequencing proportions are rounded from preliminary calculations done by Marian over the summer.
+
+H0 = The *Verrucomicrobia* proportion calculated from CARD-FISH does not differ from that calculated from the molecular data.
 
 ```{r, echo=FALSE}
 #Make sequencing proportion table
@@ -239,6 +243,7 @@ Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
 
 prop.test(Tag.compare)
 ```
+The p-value is very large (0.9508), so the proportions of *Verrucomicrobia* calculated from CARD-FISH and molecular data are not significantly different.
 
 
 To help visualize the data, I plot the CARD-FISH and tag sequencing proportions with error bars.
@@ -258,9 +263,9 @@ FISH.Dep.sd <- sd(Abs.Rel[1,2], 3)
 FISH.In.sd <- sd(Abs.Rel[2,2], 6)
 FISH.Out.sd <- sd(Abs.Rel[3,2], 5)
 #Observations for 
-Tag.Dep.sd <- sd(Tag.compare[2,1], 25000)
-Tag.In.sd <- sd(Tag.compare[2,2], 25000)
-Tag.Out.sd <- sd(Tag.compare[2,3],25000)
+Tag.Dep.sd <- sd(Tag.compare[1,1], 25000)
+Tag.In.sd <- sd(Tag.compare[2,1], 25000)
+Tag.Out.sd <- sd(Tag.compare[3,1],25000)
 
 #Prep matrix for bar plot
 Tag.compare <- t(Tag.compare)
@@ -269,13 +274,13 @@ Tag.compare <- t(Tag.compare)
 barplot(Tag.compare, width=1, names.arg=c("Deep", "Inlet", "Outlet"),beside=TRUE, horiz=FALSE, col=c("Yellow","Blue"),main="Verrucomicrobia Proportion", xlab="Sample", ylab="Relative Proportion", xlim=c(0,17),ylim=c(0,0.55), axisnames=TRUE)
 
 #Add legend
-legend(x=c(10,17), y=c(0,0.1), legend=c("CARD-FISH","Sequencing"), col=c("yellow","blue"), pch=15)
+legend(x=c(10,17), y=c(0,0.1), legend=c("CARD-FISH","Molecular"), col=c("yellow","blue"), pch=15)
 
 #Add std error bars
 #Vertical
-segments(1.5,Tag.compare[1,1]-FISH.Dep.sd,1.5,Tag.compare[1,1]+FISH.Dep.sd,lwd=2)
+segments(1.5,0,1.5,Tag.compare[1,1]+FISH.Dep.sd,lwd=2)
 #Bottom horizontal
-segments(1.25,Tag.compare[1,1]-FISH.Dep.sd, 1.75, Tag.compare[1,1]-FISH.Dep.sd,lwd=2)
+segments(1.25,0, 1.75, 0,lwd=2)
 #Top horizontal
 segments(1.25,Tag.compare[1,1]+FISH.Dep.sd, 1.75, Tag.compare[1,1]+FISH.Dep.sd,lwd=2)
 
@@ -299,18 +304,24 @@ segments(8.5,Tag.compare[2,3]-Tag.Out.sd,8.5,Tag.compare[2,3]+Tag.Out.sd,lwd=2)
 segments(8.25,Tag.compare[2,3]-Tag.Out.sd,8.75,Tag.compare[2,3]-Tag.Out.sd,lwd=2)
 segments(8.25,Tag.compare[2,3]+Tag.Out.sd,8.75,Tag.compare[2,3]+Tag.Out.sd,lwd=2)
 ```
-The p-value is 0.9508, so the proportions of *Verrucomicroba* reported by CARD-FISH and tag sequencing are not significantly different.
+
 
 
 #### Discussion
+
+
 The standard deviation of the CARD-FISH proportion is extremely high. To decrease this and increase the power and accuracy of my data, I should conduct more counts.
 
 It would be interesting to see if probes targeted towards gram-positive bacteria performed similarly despite the added challenge of permeating the thick peptidoglycan layer. I would also be interested in seeing if more specific probes--such as those targeting a bacterial class--perform similarly.
 
-For future CARD-FISH runs, I would like to examine specific classes of *Verrucomicrobia*.
+For future CARD-FISH, I would like to examine specific classes of *Verrucomicrobia*.
 
-Most importantly, I need to finish learning how to analyze the OTU data exported from Mothur. This will be the basis of my senior thesis and will depend upon statistical analysis with R. In other words, I need to step up my game.
+Most importantly, I need to finish learning how to analyze the OTU data exported from Mothur so I can calculate proportions myself instead of relying on help from Marian and Vincent. My senior thesis will depend upon statistical analysis with R; in other words, I need to step up my game.
 
+
+
+
+####Citations
 
 
 
