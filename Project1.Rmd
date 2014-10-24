@@ -225,9 +225,9 @@ Abs.Rel[2,] <- RelProp.matrix
 #Transpose matrix; flip dimensions
 Abs.Rel <- t(Abs.Rel)
 
-prop.test(Abs.Rel)
+Abs.Rel.test <- prop.test(Abs.Rel)
 ```
-Because the p-value is very large (0.9964), I do not reject H0. The relative and absolute proportions of *Verrucomicrobia* are not significantly different.
+Because the p-value is very large (`Abs.Rel.test$p.value`), I do not reject H0. The relative and absolute proportions of *Verrucomicrobia* are not significantly different.
 
 
 For my following calculations, I will use the relative proportion of *Verrucomicrobia*.
@@ -251,9 +251,9 @@ Tag.compare <- matrix(nrow=3, ncol=2)
 Tag.compare[,1] <- Abs.Rel[,2]
 Tag.compare[,2] <- c(0.31256, 0.09375,0.21875)
 
-prop.test(Tag.compare)
+Tag.compare.test <- prop.test(Tag.compare)
 ```
-The p-value is very large (0.9508), so the proportions of *Verrucomicrobia* calculated from CARD-FISH and molecular data are not significantly different.
+The p-value is very large (`Tag.compare.test$p.value`), so the proportions of *Verrucomicrobia* calculated from CARD-FISH and molecular data are not significantly different.
 
 
 
