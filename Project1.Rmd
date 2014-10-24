@@ -318,7 +318,34 @@ segments(8.25,Tag.compare[2,3]+Tag.Out.sd,8.75,Tag.compare[2,3]+Tag.Out.sd,lwd=2
 ```
 
 
+Those error bars are pretty knarly; so I decided to calculate the power for Deep, Inlet, and Outlet proportions. Because the CARD-FISH and molecular data have a different number of observations, I used the smaller observation (CARD-FISH) to calculate power.
 
+
+**Deep**
+```{r, echo=FALSE}
+Dep.power <- power.prop.test(n=c(5), p1=Tag.compare[1,1], p2=Tag.compare[2,1], sig.level=0.05, power=NULL, alternative="two.sided")
+```
+
+
+Power = `Dep.power$power`
+
+
+**Inlet**
+```{r, echo=FALSE}
+In.power <- power.prop.test(n=c(3), p1=Tag.compare[1,2], p2=Tag.compare[2,2], sig.level=0.05, power=NULL, alternative="two.sided")
+```
+
+
+Power = `In.power$power`
+
+
+**Outlet**
+```{r, echo=FALSE}
+Out.power <- power.prop.test(n=c(6), p1=Tag.compare[1,3], p2=Tag.compare[2,3], sig.level=0.05, power=NULL, alternative="two.sided")
+```
+
+
+Power = `Out.power$power`
 
 #### Discussion
 
