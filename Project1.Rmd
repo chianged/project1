@@ -318,7 +318,7 @@ segments(8.25,Tag.compare[2,3]+Tag.Out.sd,8.75,Tag.compare[2,3]+Tag.Out.sd,lwd=2
 ```
 
 
-Those error bars are pretty knarly; so I decided to calculate the power for Deep, Inlet, and Outlet proportions. Because the CARD-FISH and molecular data have a different number of observations, I used the smaller observation (CARD-FISH) to calculate power.
+Those error bars are pretty knarly; so I decided to calculate the power for Deep, Inlet, and Outlet proportions. Because the CARD-FISH and molecular data have a different number of observations, I used the smaller observation number (CARD-FISH) to calculate power.
 
 
 **Deep**
@@ -350,7 +350,10 @@ Power = 0.056
 #### Discussion
 
 
-Based on my data, the absolute and relative proportions of *Verrucomicrobia* are not significantly different; neither are the proportions calculated from CARD-FISH versus molecular data. However, my bar plot illustrates that while the proportions from CARD-FISH and molecular data are different, the CARD-FISH error bars are extremely large. This reveals a critical shortcoming in my data: my CARD-FISH counts are based on an extremely small observation size. Although I counted a large number of cells on each labeled filter (over 1000), the number of observations for each labeled filter is between 3 and 6. As a result, my standard deviation is extremely large. This shortcoming may be the cause of Type II error and low power in my analysis.
+Based on my data, the absolute and relative proportions of *Verrucomicrobia* are not significantly different; neither are the proportions calculated from CARD-FISH versus molecular data. However, my bar plot illustrates that while the proportions from CARD-FISH and molecular data are different, the CARD-FISH error bars are extremely large. This reveals a critical shortcoming in my data: my CARD-FISH counts are based on an extremely small observation size. Although I counted a large number of cells on each labeled filter (over 1000), the number of observations for each labeled filter is between 3 and 6. As a result, my standard deviation is extremely large. 
+
+
+This shortcoming is also reflected in the powers I calculated for Deep, Inlet, and Outlet. The power is less than 0.1 in all three cases; consequently, it is very likely that I have Type II error.
 
 
 To remedy this, I should increase the number of observations by counting more fields. This may result in drasticly different results when running tests of proportions. For example, when looking at the inlet proportions on the bar plot, the CARD-FISH error bar just barely overlaps with the molecular data error bar and proportion. I hypothesize that if I increase the number of CARD-FISH observations, the proportion of *Verrucomicrobia* calculated from CARD-FISH versus molecular data will be significantly different.
