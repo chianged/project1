@@ -4,6 +4,7 @@ October 22, 2014
 
 
 
+
 ### Introduction
   For my senior honors thesis, I am studying the distribution and lifestyle of the bacterial phylum *Verrucomicrobia* in the Great Lakes. Species of *Verrucomicrobia* have been found to be involved in complex carbon breakdown as well as methane oxidation, which suggest that they play a role in the carbon cycle^1,2^. The majority of *Verrucomicrobia* studies have been conducted in soil where they are a ubiquitous and abundant group^3^. They were first observed and later isolated from aquatic systems^4,5,6^; however, very few freshwater studies have been conducted and much remains to be learned regarding their ecology, niche, and function in the ecosystem^7^.
   
